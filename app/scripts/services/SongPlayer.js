@@ -26,6 +26,7 @@
 
            currentBuzzObject = new buzz.sound(song.audioUrl, {
                formats: ['mp3'],
+               volume: SongPlayer.volume,
                preload: true
            });
 
@@ -89,6 +90,18 @@
         * @type {Number}
         */
         SongPlayer.volume = 30;
+
+        /*
+        * @desc True if and only if the song is muted.
+        * @type {Boolean}
+        */
+        SongPlayer.muted = false;
+
+        /*
+        * @desc Volume set to when unmuted
+        * @type {Number}
+        */
+        SongPlayer.oldVolume = 30;
 
         /*
         * @function playSong
@@ -170,8 +183,35 @@
        */
        SongPlayer.setVolume = function(volume) {
            if (currentBuzzObject) {
+               SongPlayer.muted = false;
+               SongPlayer.volume = volume;
                currentBuzzObject.setVolume(volume);
            }
+       };
+
+       /*
+      * @function Mute
+      * @desc Set current volume to 0
+      */
+      SongPlayer.mute = function() {
+         if (currentBuzzObject) {
+           SongPlayer.muted = true;
+           SongPlayer.oldVolume = SongPlayer.volume;
+           SongPlayer.volume = 0;
+           currentBuzzObject.setVolume(0);
+         }
+       };
+
+       /*
+      * @function Mute
+      * @desc Set current volume to 0
+      */
+      SongPlayer.unmute = function() {
+         if (currentBuzzObject) {
+           SongPlayer.muted = false;
+           SongPlayer.volume = SongPlayer.oldVolume;
+           currentBuzzObject.setVolume(SongPlayer.oldVolume);
+         }
        };
 
          return SongPlayer;
