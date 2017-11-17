@@ -17,6 +17,16 @@
             <div class="links-container">
                 <a ui-sref="collection" class="navbar-link">Collection</a>
             </div>
+            <form class="loginForm" ng-controller="LoginCtrl as login" ng-submit="login(user)">
+              <div class="fieldsContainer">
+                <input class="loginField" type="text" placeholder="Username" ng-model="user.username"/>
+                <input class="loginField" type="text" placeholder="Password" ng-model="user.password"/>
+              </div>
+              <div class="loginSubmit">
+                <input class="loginButton" type="submit" ng-click="update(user)" value="Login" />
+              <div>
+            </div>
+          </form>
         </nav>
 
         <ui-view></ui-view>

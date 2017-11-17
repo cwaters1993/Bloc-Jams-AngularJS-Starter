@@ -19,7 +19,7 @@ body {
     min-height: 100%;
     padding-bottom: 200px;
  }
- 
+
 .navbar {
     position: relative;
     padding: 0.5rem;
@@ -37,7 +37,7 @@ body {
     display: table;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 150px;
     height: 100px;
     color: white;
     text-decoration: none;
@@ -76,22 +76,56 @@ body {
     max-width: 56rem;
 }
 
+.loginForm {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  height: 100px;
+  margin: auto;
+  width: 300px;
+}
+
+.fieldsContainer {
+  width: 70%;
+  height: 100px;
+  float: left;
+}
+
+.loginField {
+  margin: 5px;
+  height: 40px;
+  width: 90%;
+  border-radius: 5px;
+  color: black;
+}
+
+.loginSubmit {
+  margin-left: 70%;
+  height: 100px;
+}
+
+.loginButton {
+  height: 40px;
+  margin-top: 30px;
+  width: 90%;
+  border-radius: 5px;
+}
 /* Medium and small screens (640px) */
 @media (min-width: 40rem) {
     html { font-size: 112%; }
-    
+
     .column {
         float: left;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
     .column.full { width: 100%; }
     .column.two-thirds { width: 66.7%; }
     .column.half { width: 50%; }
     .column.third { width: 33.3%; }
     .column.fourth { width: 25%; }
-    .column.flow-opposite { float: right; } 
+    .column.flow-opposite { float: right; }
 }
 
 /* Large screens (1024px) */
