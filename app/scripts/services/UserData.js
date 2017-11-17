@@ -8,7 +8,7 @@
          ];
 
          UserData.getUserByID = function(id) {
-           return Users[id];
+           return AllUsers[id];
          };
 
          UserData.getUserByName = function(name) {

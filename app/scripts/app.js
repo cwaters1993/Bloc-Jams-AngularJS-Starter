@@ -22,7 +22,7 @@
               templateUrl: '/templates/collection.html'
           })
           .state('profile', {
-              url: '/profile',
+              url: '/profile?userid&username',
               controller: 'ProfileCtrl as profile',
               templateUrl: '/templates/profile.html'
           });

@@ -16,7 +16,7 @@
             </a>
             <div class="links-container">
                 <a ui-sref="collection" class="navbar-link">Collection</a>
-                <a ui-sref="profile" class="navbar-link" ng-show="login.auth.loggedIn"> {{ login.auth.user.username }} </a>
+                <a ui-sref= "profile({userid:login.auth.userid,username:login.auth.username})" class="navbar-link" ng-show="login.auth.loggedIn"> {{ login.auth.username }} </a>
             </div>
             <form class="loginForm">
               <div class="fieldsContainer" ng-hide="login.auth.loggedIn">

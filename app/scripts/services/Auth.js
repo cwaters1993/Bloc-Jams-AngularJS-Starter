@@ -4,7 +4,9 @@
 
       Auth.loggedIn = sessionStorage.loggedIn || false;
 
-      Auth.user = sessionStorage.user || null;
+      Auth.username = sessionStorage.username || null;
+
+      Auth.userid = sessionStorage.userid || null;
 
       Auth.tryLogin = function(username, password) {
         var User = UserData.getUserByName(username);
@@ -12,8 +14,10 @@
           if(User.password === password) {
             Auth.loggedIn = true;
             sessionStorage.loggedIn = true;
-            Auth.user = User;
-            sessionStorage.user = User;
+            Auth.username = username;
+            sessionStorage.username = username;
+            Auth.userid = User.id;
+            sessionStorage.userid = User.id;
             console.log(Auth.loggedIn)
           } else{
             alert("Invalid password")
