@@ -10,20 +10,22 @@
         <link rel="stylesheet" type="text/css" href="styles/landing.css">
     </head>
     <body class="landing">
-        <nav class="navbar">
+        <nav class="navbar" ng-controller="LoginCtrl as login" >
             <a ui-sref="landing" class="logo">
                 <img src="assets/images/bloc_jams_logo.png" alt="bloc jams logo">
             </a>
             <div class="links-container">
                 <a ui-sref="collection" class="navbar-link">Collection</a>
+                <a ui-sref="profile" class="navbar-link" ng-show="login.auth.loggedIn"> {{ login.auth.user.username }} </a>
             </div>
-            <form class="loginForm" ng-controller="LoginCtrl as login" ng-submit="login(user)">
-              <div class="fieldsContainer">
-                <input class="loginField" type="text" placeholder="Username" ng-model="user.username"/>
-                <input class="loginField" type="text" placeholder="Password" ng-model="user.password"/>
+            <form class="loginForm">
+              <div class="fieldsContainer" ng-hide="login.auth.loggedIn">
+                <input class="loginField" type="text" placeholder="Username" ng-model="login.username"/>
+                <input class="loginField" type="text" placeholder="Password" ng-model="login.password"/>
               </div>
               <div class="loginSubmit">
-                <input class="loginButton" type="submit" ng-click="update(user)" value="Login" />
+                <input class="loginButton" type="button" ng-click="login.loginAttempt()" value="Login" ng-hide="login.auth.loggedIn"/>
+                <input class="loginButton" type="button" ng-click="login.logout()" value="Logout" ng-show="login.auth.loggedIn"/>
               <div>
             </div>
           </form>
@@ -38,10 +40,14 @@
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Fixtures.js"></script>
         <script src="/scripts/services/SongPlayer.js"></script>
+        <script src="/scripts/services/UserData.js"></script>
+        <script src="/scripts/services/Auth.js"></script>
         <script src="/scripts/controllers/LandingCtrl.js"></script>
         <script src="/scripts/controllers/CollectionCtrl.js"></script>
         <script src="/scripts/controllers/AlbumCtrl.js"></script>
         <script src="/scripts/controllers/PlayerBarCtrl.js"></script>
+        <script src="/scripts/controllers/LoginCtrl.js"></script>
+        <script src="/scripts/controllers/ProfileCtrl.js"></script>
         <script src="/scripts/directives/seekBar.js"></script>
         <script src="/scripts/filters/timecode.js"></script>
     </body>

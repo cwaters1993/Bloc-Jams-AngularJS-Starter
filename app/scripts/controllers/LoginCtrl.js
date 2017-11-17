@@ -1,9 +1,20 @@
 (function() {
-    function LoginCtrl(UserData) {
-
+    function LoginCtrl(Auth) {
+      this.auth = Auth;
+      var lc = this;
+      lc.username = "";
+      lc.password = "";
+      this.loginAttempt = function() {
+        Auth.tryLogin(lc.username, lc.password);
+      };
+      this.logout = function() {
+        Auth.loggedIn = false;
+        sessionStorage.loggedIn = false;
+        lc.password = "";
+      }
     }
 
     angular
         .module('blocJams')
-        .controller('LoginCtrl', ['UserData', LoginCtrl]);
+        .controller('LoginCtrl', ['Auth', LoginCtrl]);
 })();
