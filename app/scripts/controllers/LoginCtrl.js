@@ -1,7 +1,6 @@
 (function() {
     function LoginCtrl(UserData) {
-        this.albumData = Fixtures.getAlbum();
-        this.songPlayer = SongPlayer;
+
     }
 
     angular
