@@ -2,7 +2,7 @@
 <main class="profile-view container narrow" >
   <div ng-show="profile.validUrl()">
     <div class="header">
-      <img src="../assets/images/dylan.jpg" align="middle"/>
+      <img ng-src= "{{ profile.profPic() }}" align="middle"/>
       <h1>{{ profile.username }}</h1>
     </div>
     <h2> Favorite Song </h3>

@@ -18,6 +18,9 @@
       this.favBand = function() {
         return UserData.getUserByID(pc.id).favBand;
       }
+      this.profPic = function() {
+        return UserData.getUserByID(pc.id).profPic;
+      }
     }
 
     angular
