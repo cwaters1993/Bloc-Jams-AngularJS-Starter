@@ -1,0 +1,29 @@
+h1, h2, p {
+  text-align: center;
+}
+.header h1 {
+  display: inline;
+  height: 50px;
+  line-height: 50px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: table-cell;
+  vertical-align: middle;
+}
+h2 {
+  margin-top: 50px;
+}
+img {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  max-height: 52px;
+  display: inline;
+  margin-right: 5px;
+}
+.header {
+  text-align: center;
+  height: 100px;
+  text-align:center;
+  display:table;
+  margin: auto;
+}

@@ -18,7 +18,6 @@
             sessionStorage.username = username;
             Auth.userid = User.id;
             sessionStorage.userid = User.id;
-            console.log(Auth.loggedIn)
           } else{
             alert("Invalid password")
           }

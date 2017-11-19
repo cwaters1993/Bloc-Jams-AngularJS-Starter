@@ -1,7 +1,16 @@
+<link rel="stylesheet" type="text/css" href="../styles/profile.css">
 <main class="profile-view container narrow" >
-  Hello World
-  <br/>
-  Username: {{ profile.username }}
-  <br/>
-  User ID: {{ profile.id }}
+  <div ng-show="profile.validUrl()">
+    <div class="header">
+      <img src="../assets/images/dylan.jpg" align="middle"/>
+      <h1>{{ profile.username }}</h1>
+    </div>
+    <h2> Favorite Song </h3>
+    <p> {{ profile.favSong() }} </p>
+    <h2> Favorite Band </h2>
+    <p> {{ profile.favBand() }}</p>
+  </div>
+  <div ng-hide="profile.validUrl()">
+    <h1>Invalid URL</h2>
+  </div>
 </main>
