@@ -2,13 +2,23 @@
 <main class="profile-view container narrow" >
   <div ng-show="profile.validUrl()">
     <div class="header">
-      <img ng-src= "{{ profile.profPic() }}" align="middle"/>
-      <h1>{{ profile.username }}</h1>
+      <img ng-src= "{{profile.profPic}}" align="middle"/>
+      <h1>{{profile.username}}</h1>
     </div>
     <h2> Favorite Song </h3>
-    <p> {{ profile.favSong() }} </p>
+    <div class="info">
+      <p ng-hide="profile.editingSong">{{profile.favSong}} </p>
+      <input ng-show="profile.editingSong" type="text" ng-model="profile.favSong"/>
+      <input ng-show="profile.editingSong" class="saveButton" type="button" ng-click="profile.saveSong()" value="Save"/>
+      <div ng-show="profile.canEdit()" ng-hide="profile.editingSong" ng-click="profile.editSong()">Edit</div>
+    </div>
     <h2> Favorite Band </h2>
-    <p> {{ profile.favBand() }}</p>
+    <div class="info">
+      <p ng-hide="profile.editingBand">{{profile.favBand}}</p>
+      <input ng-show="profile.editingBand" type="text" ng-model="profile.favBand"/>
+      <input ng-show="profile.editingBand" class="saveButton" type="button" ng-click="profile.saveBand()" value="Save"/>
+      <div ng-show="profile.canEdit()" ng-hide="profile.editingBand" ng-click="profile.editBand()">Edit</div>
+    </div>
   </div>
   <div ng-hide="profile.validUrl()">
     <h1>Invalid URL</h2>

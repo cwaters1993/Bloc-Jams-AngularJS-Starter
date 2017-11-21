@@ -20,10 +20,24 @@ img {
   display: inline;
   margin-right: 5px;
 }
-.header {
+.header, .info {
   text-align: center;
   height: 100px;
   text-align:center;
   display:table;
   margin: auto;
+}
+p {
+  display: inline;
+  margin-right: 5px;
+}
+.info div {
+  display: inline;
+  color: blue;
+}
+.info div:hover {
+  color: #ADD8E6;
+}
+input {
+  color: black;
 }
