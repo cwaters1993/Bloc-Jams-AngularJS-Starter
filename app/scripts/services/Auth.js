@@ -26,6 +26,11 @@
         }
       }
 
+      Auth.logout = function() {
+        Auth.loggedIn = false;
+        sessionStorage.loggedIn = false;
+      }
+
       return Auth
     }
 

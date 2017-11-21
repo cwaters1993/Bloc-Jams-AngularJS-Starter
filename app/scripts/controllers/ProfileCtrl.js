@@ -5,6 +5,7 @@
       pc.username = $location.search().username;
       pc.editingSong = false;
       pc.editingBand = false;
+      pc.auth = Auth;
       pc.validUrl = function() {
         if(pc.id == null) {return false};
         if(pc.username == null) {return false};
@@ -14,8 +15,8 @@
           return false;
         };
       };
-      pc.favSong = (pc.validUrl() ? UserData.getUserByID(pc.id).favSong : null);
-      pc.favBand = (pc.validUrl() ? UserData.getUserByID(pc.id).favBand : null);
+      pc.favSong = (pc.validUrl() ? (localStorage.getItem('Song'+pc.id) || UserData.getUserByID(pc.id).favSong) : null);
+      pc.favBand = (pc.validUrl() ? (localStorage.getItem('Band'+pc.id) || UserData.getUserByID(pc.id).favBand) : null);
       pc.profPic = (pc.validUrl() ? UserData.getUserByID(pc.id).profPic : null);
       pc.canEdit = function() {
         if (pc.validUrl() && (pc.username == Auth.username) && Auth.loggedIn) {
@@ -35,9 +36,11 @@
       };
       pc.saveSong = function() {
         pc.editingSong = false;
+        localStorage.setItem('Song'+pc.id, pc.favSong);
       };
       pc.saveBand = function() {
         pc.editingBand = false;
+        localStorage.setItem('Band'+pc.id, pc.favBand);
       };
     }
 

@@ -8,8 +8,7 @@
         Auth.tryLogin(lc.username, lc.password);
       };
       this.logout = function() {
-        Auth.loggedIn = false;
-        sessionStorage.loggedIn = false;
+        Auth.logout();
         lc.password = "";
       }
     }

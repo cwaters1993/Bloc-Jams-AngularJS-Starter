@@ -7,17 +7,21 @@
     </div>
     <h2> Favorite Song </h3>
     <div class="info">
-      <p ng-hide="profile.editingSong">{{profile.favSong}} </p>
-      <input ng-show="profile.editingSong" type="text" ng-model="profile.favSong"/>
-      <input ng-show="profile.editingSong" class="saveButton" type="button" ng-click="profile.saveSong()" value="Save"/>
-      <div ng-show="profile.canEdit()" ng-hide="profile.editingSong" ng-click="profile.editSong()">Edit</div>
+      <p ng-show="!profile.editingSong || !profile.auth.loggedIn">{{profile.favSong}} </p>
+      <div ng-show="profile.canEdit()" >
+        <input ng-show="profile.editingSong" type="text" ng-model="profile.favSong"/>
+        <input ng-show="profile.editingSong" class="saveButton" type="button" ng-click="profile.saveSong()" value="Save"/>
+        <div ng-hide="profile.editingSong" ng-click="profile.editSong()">Edit</div>
+      </div>
     </div>
     <h2> Favorite Band </h2>
     <div class="info">
-      <p ng-hide="profile.editingBand">{{profile.favBand}}</p>
-      <input ng-show="profile.editingBand" type="text" ng-model="profile.favBand"/>
-      <input ng-show="profile.editingBand" class="saveButton" type="button" ng-click="profile.saveBand()" value="Save"/>
-      <div ng-show="profile.canEdit()" ng-hide="profile.editingBand" ng-click="profile.editBand()">Edit</div>
+      <p ng-show="!profile.editingBand || !profile.auth.loggedIn">{{profile.favBand}}</p>
+      <div ng-show="profile.canEdit()" >
+        <input ng-show="profile.editingBand" type="text" ng-model="profile.favBand"/>
+        <input ng-show="profile.editingBand" class="saveButton" type="button" ng-click="profile.saveBand()" value="Save"/>
+        <div ng-show="profile.canEdit" ng-hide="profile.editingBand" ng-click="profile.editBand()">Edit</div>
+      </div>
     </div>
   </div>
   <div ng-hide="profile.validUrl()">
