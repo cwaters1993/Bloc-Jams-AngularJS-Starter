@@ -7,7 +7,7 @@
     </div>
     <h2> Favorite Song </h3>
     <div class="info">
-      <p ng-show="!profile.editingSong || !profile.auth.loggedIn">{{profile.favSong}} </p>
+      <p ng-show="!profile.editingSong || !profile.canEdit()">{{profile.favSong}} </p>
       <div ng-show="profile.canEdit()" >
         <input ng-show="profile.editingSong" type="text" ng-model="profile.favSong"/>
         <input ng-show="profile.editingSong" class="saveButton" type="button" ng-click="profile.saveSong()" value="Save"/>
@@ -16,7 +16,7 @@
     </div>
     <h2> Favorite Band </h2>
     <div class="info">
-      <p ng-show="!profile.editingBand || !profile.auth.loggedIn">{{profile.favBand}}</p>
+      <p ng-show="!profile.editingBand || !profile.canEdit()">{{profile.favBand}}</p>
       <div ng-show="profile.canEdit()" >
         <input ng-show="profile.editingBand" type="text" ng-model="profile.favBand"/>
         <input ng-show="profile.editingBand" class="saveButton" type="button" ng-click="profile.saveBand()" value="Save"/>
